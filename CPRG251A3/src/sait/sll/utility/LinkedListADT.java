@@ -31,7 +31,11 @@ public interface LinkedListADT
 	 * Prepends (adds to beginning) data to the list.
 	 * @param data Data to store inside element.
 	 */
-	void prepend(Object data);
+	void prepend(Object data); // Like the insert
+	
+
+	
+	
 	
 	/**
 	 * Adds a new element at a specific position.
