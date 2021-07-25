@@ -13,8 +13,8 @@ public class TestSLL {
 		SLL list = new SLL();
 		list.append(user1);
 		list.append(user2);
-		list.append(user5);
-		list.prepend(user4);
+		list.append(user3);
+		list.replace(user5, 2);
 		System.out.println("Output" + list.retrieve(2).toString());
 		System.out.println("Index is" + list.indexOf(user4));
 		System.out.println("Size" + list.size());

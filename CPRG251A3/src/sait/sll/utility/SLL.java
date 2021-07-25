@@ -61,7 +61,14 @@ public class SLL implements LinkedListADT {
 
 	@Override
 	public void replace(Object data, int index) throws IndexOutOfBoundsException {
-		// TODO Auto-generated method stub
+        Node cursor = head;
+        for (int i = 0; i < index - 1; i++) {
+        	cursor = cursor.getNext();
+        }
+        Node tempNode = new Node(data);
+        tempNode.setNext(cursor.getNext().getNext());
+        cursor.setNext(null);
+        cursor.setNext(tempNode);
 		
 	}
 
