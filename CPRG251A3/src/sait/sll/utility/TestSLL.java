@@ -14,12 +14,15 @@ public class TestSLL {
 		list.append(user1);
 		list.append(user2);
 		list.append(user3);
-		list.replace(user5, 2);
+		list.append(user4);
+		list.replace(user5, 0);
 		System.out.println("Output" + list.retrieve(2).toString());
 		System.out.println("Index is" + list.indexOf(user4));
 		System.out.println("Size" + list.size());
 		System.out.println("Contains" + list.contains(user3));
 		System.out.println("sdfjkhgl");
+		list.show();
+		list.clear();
 		list.show();
 
 	}

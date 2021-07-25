@@ -2,18 +2,18 @@ package sait.sll.utility;
 
 public class SLL implements LinkedListADT {
 	
-	Node head;
+	private Node head;
 	
 	
 
 	@Override
 	public boolean isEmpty() {
-		return head.getNext() == null ? true: false;
+		return head == null ? true: false;
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
+		head = null;
 		
 	}
 
@@ -61,26 +61,40 @@ public class SLL implements LinkedListADT {
 
 	@Override
 	public void replace(Object data, int index) throws IndexOutOfBoundsException {
-        Node cursor = head;
-        for (int i = 0; i < index - 1; i++) {
-        	cursor = cursor.getNext();
-        }
         Node tempNode = new Node(data);
-        tempNode.setNext(cursor.getNext().getNext());
-        cursor.setNext(null);
-        cursor.setNext(tempNode);
+		if (index == 0) {
+			tempNode.setNext(head.getNext());
+			head = tempNode;
+        }
+		
+		else {
+			Node cursor = head;
+	        for (int i = 0; i < index - 1; i++) {
+	        	cursor = cursor.getNext();
+	        }
+	
+	        tempNode.setNext(cursor.getNext().getNext());
+	//        cursor.setNext(null);
+	        cursor.setNext(tempNode);
+		}
 		
 	}
 
 	@Override
 	public int size() {
-		Node iteratorNode = head;
-		int count = 0;
-		while (iteratorNode.getNext() != null) { //iterate from head
-			iteratorNode = iteratorNode.getNext();
-			count++;
-	}
-		return count;
+		
+		if (head == null) {
+			return 0;
+		}
+		else {
+			Node iteratorNode = head;
+			int count = 0;
+			while (iteratorNode.getNext() != null) { //iterate from head
+				iteratorNode = iteratorNode.getNext();
+				count++;
+		}
+			return count + 1;
+		}
 	}
 
 	@Override
@@ -143,15 +157,18 @@ public class SLL implements LinkedListADT {
 	}
 	
 	public void show() {
-		Node tempNode = head; 
-		
-		while (tempNode.getNext() != null) {
+		try {
+			Node tempNode = head; 
+			
+			while (tempNode.getNext() != null) {
+				System.out.println(tempNode.getData().toString());
+				tempNode = tempNode.getNext();
+			}
 			System.out.println(tempNode.getData().toString());
-			tempNode = tempNode.getNext();
+			
+		} catch (NullPointerException ex) {
+			System.out.println("List is empty");
 		}
-		System.out.println(tempNode.getData().toString());
-		
-		
 		}
 	
 }
