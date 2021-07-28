@@ -1,12 +1,13 @@
 package sait.sll.problemdomain;
 
+import java.io.*;
 /**
  * Represents a user.
  * @author Nick Hamnett
  * @version 2019-07-25
  *
  */
-public class User {
+public class User implements Serializable{
 	private int id;
 	
 	private String name;
@@ -82,6 +83,34 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + "]";
+	}
+	
+	
+	public final void writeObject(ObjectOutputStream oos) throws IOException
+	{
+		User user = new User(id, name, email, password);
+		
+		FileOutputStream fos = new FileOutputStream("User.bin");
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		oos.writeObject(user);
+		
+		oos.close();
+		fos.close();
+		
+	}
+
+	public final void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException
+	{
+		User user = null;
+		
+		FileInputStream fis = new FileInputStream("User.bin");
+		ObjectInputStream ois = new ObjectInputStream(fis);
+		User user2 = (User) ois.readObject();
+		
+		ois.close();
+		fis.close();
+		
+		
 	}
 	
 	
