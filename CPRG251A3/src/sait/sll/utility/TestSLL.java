@@ -1,5 +1,14 @@
 package sait.sll.utility;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 import sait.sll.problemdomain.User;
 
 public class TestSLL {
@@ -21,9 +30,42 @@ public class TestSLL {
 		System.out.println("Size" + list.size());
 		System.out.println("Contains" + list.contains(user3));
 		System.out.println("sdfjkhgl");
-		list.show();
-		list.clear();
-		list.show();
+		list.show();	
+		try {
+			writeObject(list);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			readObject(list);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 
 	}
+	
+    public static void writeObject(LinkedListADT list) throws IOException {
+    	FileOutputStream file = new FileOutputStream("user.out");
+        ObjectOutputStream out = new ObjectOutputStream(file);
+        out.writeObject(list);
+        out.close();
+        
+    }
+    
+    public static void readObject(LinkedListADT list) throws IOException {
+    try {
+    	FileInputStream in = new FileInputStream("user.out");
+        ObjectInputStream ois = new ObjectInputStream(in);
+        list = (LinkedListADT)(ois.readObject());
+      } catch (Exception e) {
+        System.out.println("Problem serializing: " + e);
+      }
+    	((SLL) list).show();
+    }
+    
+
 }

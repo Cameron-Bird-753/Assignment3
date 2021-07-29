@@ -1,5 +1,7 @@
 package sait.sll.utility;
 
+import java.io.Serializable;
+
 /**
  * Abstract data type for a linked list.
  * 
