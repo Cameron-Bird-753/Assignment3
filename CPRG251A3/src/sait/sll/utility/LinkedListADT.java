@@ -5,10 +5,9 @@ import java.io.Serializable;
 /**
  * Abstract data type for a linked list.
  * 
- * @author  
+ * @author  Nick Hamnett
  * @version 25-03-2021
  *
- * @param Object The reference data type the linked list will contain.
  */
 public interface LinkedListADT 
 {

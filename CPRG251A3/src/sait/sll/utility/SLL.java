@@ -10,6 +10,7 @@ import java.io.Serializable;
  */
 public class SLL implements LinkedListADT, Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	private Node head;
 	
 
@@ -21,7 +22,6 @@ public class SLL implements LinkedListADT, Serializable{
 	@Override
 	public void clear() {
 		head = null;
-		
 	}
 
 	@Override
@@ -81,7 +81,6 @@ public class SLL implements LinkedListADT, Serializable{
 	        }
 	
 	        tempNode.setNext(cursor.getNext().getNext());
-	//        cursor.setNext(null);
 	        cursor.setNext(tempNode);
 		}
 		
@@ -111,12 +110,11 @@ public class SLL implements LinkedListADT, Serializable{
 			head = head.getNext();
 		} else {
 			/*Iterate from head	*/
-	
 			Node iteratorNode = head;
 			Node tempNode = null;
 			
 			for (int i = 0; i < index - 1; i++) {
-				iteratorNode = iteratorNode.getNext(); //iterate from head
+				iteratorNode = iteratorNode.getNext(); //iterator to next node
 			}
 			tempNode = iteratorNode.getNext();
 			iteratorNode.setNext(tempNode.getNext());
@@ -128,7 +126,7 @@ public class SLL implements LinkedListADT, Serializable{
 	public Object retrieve(int index) throws IndexOutOfBoundsException {
 		Node iteratorNode = head;
 		for (int i = 0; i < index; i++) {
-			iteratorNode = iteratorNode.getNext(); //iterate from head
+			iteratorNode = iteratorNode.getNext(); //iterator to next node
 		}
 		return iteratorNode.getData();
 	}
@@ -177,5 +175,4 @@ public class SLL implements LinkedListADT, Serializable{
 			System.out.println("List is empty");
 		}
 		}
-	
 }
