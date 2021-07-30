@@ -8,26 +8,45 @@ import java.io.Serializable;
  * @author Cameron Bird
  *
  */
+/**
+ * @author Cameron Bird
+ *
+ */
 public class Node implements Serializable {
 	private Object data;
 	private Node next; 
 	
+	/**
+	 * @param data of Object
+	 */
 	public Node(Object data){
 		this.data = data;
 	}
 	
+	/**
+	 * @return objects Data
+	 */
 	public Object getData() {
 		return data;
 	}
 	
+	/**
+	 * @param object's data
+	 */
 	public void setData(Object data) {
 		this.data = data;
 	}
 	
+	/**
+	 * @param next node
+	 */
 	public void setNext(Node next) {
 		this.next = next; 
 	}
 
+	/**
+	 * @return next node 
+	 */
 	public Node getNext() {
 		return next;
 	}
