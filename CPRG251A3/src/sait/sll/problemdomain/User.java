@@ -9,12 +9,12 @@ import java.io.Serializable;
  *
  */
 public class User implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+
 	private int id;
-	
 	private String name;
-	
 	private String email;
-	
 	private transient String password; //Transient to not save password
 	
 	/**
@@ -80,11 +80,5 @@ public class User implements Serializable{
 		
 		return this.id == other.id && this.name.equals(other.name) && this.email.equals(other.email);
 	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + "]";
-	}
-	
 	
 }
