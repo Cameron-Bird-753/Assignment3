@@ -15,7 +15,7 @@ public class User implements Serializable{
 	
 	private String email;
 	
-	 private transient String password;
+	private transient String password; //Transient to not save password
 	
 	/**
 	 * Initializes a User object.

@@ -2,10 +2,15 @@ package sait.sll.utility;
 
 import java.io.Serializable;
 
+/**
+ * Single Linked List class, stores next object in list as Node, with for Object named as head.  
+ * 
+ * @author Cameron Bird
+ *
+ */
 public class SLL implements LinkedListADT, Serializable{
 	
 	private Node head;
-	
 	
 
 	@Override
